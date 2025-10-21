@@ -122,9 +122,9 @@ export default function Home() {
                 style={{maxHeight: '70px', objectFit: 'contain'}}
                 animate={{
                   filter: [
-                    'drop-shadow(0 0 8px rgba(244, 63, 94, 0.5)) drop-shadow(0 0 16px rgba(244, 63, 94, 0.3))',
-                    'drop-shadow(0 0 12px rgba(244, 63, 94, 0.7)) drop-shadow(0 0 24px rgba(244, 63, 94, 0.4))',
-                    'drop-shadow(0 0 8px rgba(244, 63, 94, 0.5)) drop-shadow(0 0 16px rgba(244, 63, 94, 0.3))',
+                    'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 16px rgba(180, 180, 255, 0.3))',
+                    'drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 24px rgba(180, 180, 255, 0.4))',
+                    'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 16px rgba(180, 180, 255, 0.3))',
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -510,14 +510,14 @@ export default function Home() {
           >
             <motion.img
               src="/bet30.svg"
-              alt="Casino Zeus"
+              alt="Bet30 Casino"
               className="w-full h-auto mx-auto relative z-10"
               style={{maxHeight: '80px', objectFit: 'contain'}}
               animate={{
                 filter: [
-                  'drop-shadow(0 0 10px rgba(244, 63, 94, 0.5)) drop-shadow(0 0 20px rgba(244, 63, 94, 0.3))',
-                  'drop-shadow(0 0 15px rgba(244, 63, 94, 0.7)) drop-shadow(0 0 30px rgba(244, 63, 94, 0.4))',
-                  'drop-shadow(0 0 10px rgba(244, 63, 94, 0.5)) drop-shadow(0 0 20px rgba(244, 63, 94, 0.3))',
+                  'drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(180, 180, 255, 0.3))',
+                  'drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 30px rgba(180, 180, 255, 0.4))',
+                  'drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(180, 180, 255, 0.3))',
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
