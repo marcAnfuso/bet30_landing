@@ -692,7 +692,7 @@ export default function Home() {
                     ♠
                   </motion.div>
 
-                  <span className="uppercase tracking-wider drop-shadow-lg z-10 relative">Pedinos tu usuario!</span>
+                  <span className="uppercase tracking-wider drop-shadow-lg z-10 relative px-12">Pedinos tu usuario!</span>
 
                   {/* Right Spade Icon */}
                   <motion.div
