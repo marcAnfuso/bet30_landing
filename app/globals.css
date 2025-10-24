@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: #000000;
+  --background: transparent;
   --foreground: #ffffff;
   --zeus-red: #dc2626;
   --zeus-red-dark: #991b1b;
@@ -467,16 +467,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: rgba(88, 28, 135, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ec4899, #3b82f6);
+  background: linear-gradient(180deg, #ec4899, #9333ea);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #f472b6, #60a5fa);
+  background: linear-gradient(180deg, #f472b6, #a855f7);
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */

@@ -57,34 +57,115 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Animated red gradient background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-600/20 rounded-full blur-[120px] animate-float"></div>
-        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-red-700/20 rounded-full blur-[120px] animate-float-delayed"></div>
-        <div className="absolute bottom-20 right-1/3 w-72 h-72 bg-red-500/10 rounded-full blur-[100px] animate-float-slow"></div>
+    <div className="min-h-screen text-white overflow-hidden relative">
+      {/* Background image covering full screen */}
+      <div
+        className="fixed inset-0 -z-20"
+        style={{
+          backgroundImage: 'url(/joker-background-3.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
 
-        {/* Falling poker cards effect */}
+      {/* Very subtle dark overlay for better text readability */}
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.15) 100%)'
+        }}
+      />
+
+      {/* Animated gradient overlays for dynamic effect */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-[5]">
+        {/* Pulsing pink glow from center */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(219, 39, 119, 0.2) 30%, transparent 60%)',
+            filter: 'blur(60px)',
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.6, 0.8, 0.6],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Purple accent - top right */}
+        <motion.div
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(126, 34, 206, 0.2) 40%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+            opacity: [0.5, 0.7, 0.5],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Magenta accent - bottom left */}
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(219, 39, 119, 0.35) 0%, rgba(190, 24, 93, 0.2) 40%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+          animate={{
+            x: [0, -50, 0],
+            y: [0, -30, 0],
+            opacity: [0.5, 0.7, 0.5],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        {/* Violet accent - middle right */}
+        <div className="absolute top-1/2 -right-40 w-80 h-80 bg-violet-600/20 rounded-full blur-[100px] animate-float"></div>
+        <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-pink-600/15 rounded-full blur-[90px] animate-float-slow"></div>
+
+        {/* Falling poker cards and money effect - only on sides, disappear at 50% */}
         {mounted && [
-          { card: '🂡', delay: 0, x: '10%', duration: 12 },
-          { card: '🂱', delay: 2, x: '25%', duration: 14 },
-          { card: '🃁', delay: 4, x: '45%', duration: 13 },
-          { card: '🃑', delay: 1, x: '65%', duration: 15 },
-          { card: '🂮', delay: 5, x: '80%', duration: 12 },
-          { card: '🂾', delay: 3, x: '90%', duration: 14 },
-          { card: '🃎', delay: 6, x: '15%', duration: 13 },
-          { card: '🃞', delay: 7, x: '55%', duration: 15 },
+          { icon: '🂡', delay: 0, x: '5%', duration: 12 },
+          { icon: '💵', delay: 2, x: '12%', duration: 14 },
+          { icon: '🃁', delay: 4, x: '20%', duration: 13 },
+          { icon: '💴', delay: 1, x: '8%', duration: 15 },
+          { icon: '🂮', delay: 5, x: '15%', duration: 12 },
+          { icon: '💶', delay: 3, x: '18%', duration: 14 },
+          // Right side
+          { icon: '🃎', delay: 6, x: '82%', duration: 13 },
+          { icon: '💷', delay: 7, x: '88%', duration: 15 },
+          { icon: '🂾', delay: 8, x: '85%', duration: 13 },
+          { icon: '💵', delay: 3.5, x: '92%', duration: 14 },
+          { icon: '🃑', delay: 5.5, x: '80%', duration: 12 },
+          { icon: '💵', delay: 1.5, x: '95%', duration: 16 },
         ].map((item, i) => (
           <motion.div
             key={i}
-            className="absolute text-4xl opacity-30"
+            className="absolute text-4xl"
             style={{
               left: item.x,
               top: '-10%',
             }}
             animate={{
-              y: ['0vh', '110vh'],
-              rotate: [0, 360],
+              y: ['0vh', '55vh'],
+              rotate: [0, 180],
               opacity: [0, 0.3, 0.3, 0],
             }}
             transition={{
@@ -92,10 +173,10 @@ export default function Home() {
               delay: item.delay,
               repeat: Infinity,
               ease: "linear",
-              times: [0, 0.1, 0.9, 1],
+              times: [0, 0.15, 0.75, 1],
             }}
           >
-            {item.card}
+            {item.icon}
           </motion.div>
         ))}
       </div>
@@ -122,10 +203,11 @@ export default function Home() {
                 style={{maxHeight: '70px', objectFit: 'contain'}}
                 animate={{
                   filter: [
-                    'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 16px rgba(180, 180, 255, 0.3))',
-                    'drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 24px rgba(180, 180, 255, 0.4))',
-                    'drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 16px rgba(180, 180, 255, 0.3))',
-                  ]
+                    'drop-shadow(0 0 20px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 40px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 60px rgba(251, 113, 133, 0.4))',
+                    'drop-shadow(0 0 30px rgba(251, 113, 133, 1)) drop-shadow(0 0 50px rgba(251, 113, 133, 0.8)) drop-shadow(0 0 70px rgba(251, 113, 133, 0.5))',
+                    'drop-shadow(0 0 20px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 40px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 60px rgba(251, 113, 133, 0.4))',
+                  ],
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -279,134 +361,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Zeus Character - CENTERED with Lightning Glow */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="w-full max-w-[550px] flex-shrink-0 relative"
-          >
-            {/* Glowing effect on the lightning bolt area (top right) */}
-            <motion.div
-              className="absolute top-8 right-12 w-24 h-32 -z-10"
-              style={{
-                background: 'radial-gradient(ellipse at center, rgba(255,223,0,0.4) 0%, rgba(255,200,0,0.2) 40%, transparent 70%)',
-                filter: 'blur(20px)',
-              }}
-              animate={{
-                opacity: [0.6, 1, 0.6],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-
-            {/* Electric sparkle particles around lightning */}
-            <motion.div
-              className="absolute top-10 right-16 w-2 h-2 bg-yellow-300 rounded-full"
-              style={{
-                boxShadow: '0 0 10px rgba(255,223,0,1)',
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                y: [0, -10, -20],
-                x: [0, 5, 10],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-            />
-            <motion.div
-              className="absolute top-16 right-14 w-1.5 h-1.5 bg-yellow-200 rounded-full"
-              style={{
-                boxShadow: '0 0 8px rgba(255,223,0,0.8)',
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                y: [0, -8, -15],
-                x: [0, -3, -6],
-              }}
-              transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: 0.3,
-              }}
-            />
-            <motion.div
-              className="absolute top-12 right-12 w-1 h-1 bg-white rounded-full"
-              style={{
-                boxShadow: '0 0 6px rgba(255,255,255,1)',
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                y: [0, -12, -22],
-                x: [0, 8, 15],
-              }}
-              transition={{
-                duration: 1.8,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: 0.6,
-              }}
-            />
-
-            {/* Floating coins animation */}
-            <motion.div
-              className="absolute top-1/3 left-8 text-3xl"
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 360],
-                opacity: [0.6, 1, 0.6],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              🪙
-            </motion.div>
-            <motion.div
-              className="absolute top-1/2 right-10 text-2xl"
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, -360],
-                opacity: [0.5, 0.9, 0.5],
-              }}
-              transition={{
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-            >
-              🪙
-            </motion.div>
-
-            {/* Hair glow effect - positioned over upper portion only */}
-            <motion.div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[35%] rounded-full blur-3xl pointer-events-none"
-              style={{
-                background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, rgba(56,189,248,0.2) 40%, transparent 70%)'
-              }}
-              animate={{
-                opacity: [0.6, 0.85, 0.6],
-                scale: [1, 1.1, 1],
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            <img
-              src="/jocker.png"
-              alt="Joker Bet30"
-              className="w-full h-auto object-contain drop-shadow-2xl relative z-10"
-            />
-          </motion.div>
+          {/* Spacer to maintain layout and center the background Joker */}
+          <div className="w-full max-w-[550px] flex-shrink-0 my-48"></div>
 
           {/* Bottom Section: Buttons - SMALLER */}
           <div className="w-full max-w-sm px-4">
@@ -416,14 +372,17 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleWhatsAppClick('main_button')}
-                className="relative overflow-hidden text-white font-black text-base px-6 py-3 rounded-xl flex items-center justify-center gap-2 border-2"
+                className="relative overflow-hidden text-white font-black text-base px-6 py-3 rounded-xl flex items-center justify-center gap-2 border-3"
                 style={{
                   background: 'linear-gradient(90deg, #fb7185 0%, #f43f5e 50%, #fb7185 100%)',
-                  borderColor: 'rgba(251, 113, 133, 0.6)',
+                  borderColor: 'rgba(0, 0, 0, 0.4)',
+                  borderWidth: '3px',
+                  boxShadow: '0 0 0 1px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4)',
                 }}
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 1.02 }}
                 animate={{
+                  y: [0, -8, 0],
                   boxShadow: [
                     "0 0 30px rgba(251, 113, 133, 0.8)",
                     "0 0 50px rgba(251, 113, 133, 1)",
@@ -436,6 +395,7 @@ export default function Home() {
                   ]
                 }}
                 transition={{
+                  y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
                   boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                   background: { duration: 3, repeat: Infinity, ease: "easeInOut" }
                 }}
@@ -505,7 +465,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-center gap-2 text-gray-300">
                   <Clock className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm font-medium">Retiros en 2-6 minutos máximo</span>
+                  <span className="text-sm font-medium">Retiros al instante</span>
                 </div>
               </div>
             </div>
@@ -529,10 +489,11 @@ export default function Home() {
               style={{maxHeight: '80px', objectFit: 'contain'}}
               animate={{
                 filter: [
-                  'drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(180, 180, 255, 0.3))',
-                  'drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 30px rgba(180, 180, 255, 0.4))',
-                  'drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 20px rgba(180, 180, 255, 0.3))',
-                ]
+                  'drop-shadow(0 0 25px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 45px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 65px rgba(251, 113, 133, 0.4))',
+                  'drop-shadow(0 0 35px rgba(251, 113, 133, 1)) drop-shadow(0 0 55px rgba(251, 113, 133, 0.8)) drop-shadow(0 0 75px rgba(251, 113, 133, 0.5))',
+                  'drop-shadow(0 0 25px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 45px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 65px rgba(251, 113, 133, 0.4))',
+                ],
+                scale: [1, 1.05, 1],
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -607,70 +568,10 @@ export default function Home() {
               </motion.div>
             </motion.aside>
 
-            {/* Center Column: Zeus Character Only */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="flex items-center justify-center"
-            >
-              {/* Zeus Character with Lightning Glow */}
-              <motion.div
-                className="w-[800px] h-[800px] flex-shrink-0 relative"
-              >
-                {/* Glowing effect on the lightning bolt area (top right) */}
-                <motion.div
-                  className="absolute top-12 right-16 w-32 h-40 -z-10"
-                  style={{
-                    background: 'radial-gradient(ellipse at center, rgba(255,223,0,0.4) 0%, rgba(255,200,0,0.2) 40%, transparent 70%)',
-                    filter: 'blur(20px)',
-                  }}
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-
-                {/* Electric sparkle particles */}
-                {mounted && [...Array(8)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 bg-yellow-300 rounded-full"
-                    style={{
-                      top: `${25 + Math.random() * 30}%`,
-                      right: `${15 + Math.random() * 20}%`,
-                    }}
-                    animate={{
-                      opacity: [0, 1, 0],
-                      scale: [0.5, 1.5, 0.5],
-                    }}
-                    transition={{
-                      duration: 1 + Math.random(),
-                      repeat: Infinity,
-                      delay: Math.random() * 2,
-                    }}
-                  />
-                ))}
-
-
-                {/* Hair glow effect - positioned over upper portion only */}
-                <motion.div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[35%] rounded-full blur-3xl pointer-events-none z-20"
-                  style={{
-                    background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(56,189,248,0.25) 40%, transparent 70%)'
-                  }}
-                  animate={{
-                    opacity: [0.6, 0.9, 0.6],
-                    scale: [1, 1.15, 1],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                <img
-                  src="/jocker.png"
-                  alt="Joker Bet30"
-                  className="w-full h-full object-contain drop-shadow-2xl relative z-10"
-                />
-              </motion.div>
-            </motion.div>
+            {/* Center Column: Spacer to center background Joker */}
+            <div className="flex items-center justify-center">
+              <div className="w-[600px] h-[800px]"></div>
+            </div>
 
             {/* Right Column: CTA Buttons + Trust Badges */}
             <motion.aside
@@ -686,9 +587,21 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleWhatsAppClick('main_button')}
-                  className="relative overflow-hidden bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-300 hover:to-rose-400 text-white font-black text-xl px-10 py-5 rounded-xl shadow-2xl shadow-rose-400/50 hover:shadow-rose-400/70 transition-all duration-300 flex items-center justify-center gap-3"
+                  className="relative overflow-hidden bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-300 hover:to-rose-400 text-white font-black text-xl px-10 py-5 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
+                  style={{
+                    borderColor: 'rgba(0, 0, 0, 0.4)',
+                    borderWidth: '3px',
+                    borderStyle: 'solid',
+                    boxShadow: '0 0 0 1px rgba(255, 255, 255, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4)',
+                  }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+                  }}
                 >
                   {/* Left Spade Icon */}
                   <motion.div
@@ -756,7 +669,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center justify-start gap-2 text-gray-300">
                     <Clock className="w-5 h-5 text-blue-400" />
-                    <span className="text-base font-medium">Retiros en 2-6 minutos máximo</span>
+                    <span className="text-base font-medium">Retiros al instante</span>
                   </div>
                 </div>
               </div>
