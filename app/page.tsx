@@ -362,34 +362,35 @@ export default function Home() {
                   background: { duration: 3, repeat: Infinity, ease: "easeInOut" }
                 }}
               >
-                {/* Left Spade Icon */}
+                {/* Left Spade Icon - Rotating counterclockwise */}
                 <motion.div
                   className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-2xl"
                   animate={{
+                    rotate: [0, -360],
                     scale: [1, 1.2, 1],
                     opacity: [0.8, 1, 0.8],
                   }}
                   transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                    rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                   }}
                 >
                   ♠
                 </motion.div>
 
-                {/* Right Spade Icon */}
+                {/* Right Spade Icon - Rotating clockwise */}
                 <motion.div
                   className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-2xl"
                   animate={{
+                    rotate: [0, 360],
                     scale: [1, 1.2, 1],
                     opacity: [0.8, 1, 0.8],
                   }}
                   transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
+                    rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                    opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 },
                   }}
                 >
                   ♠
@@ -556,17 +557,18 @@ export default function Home() {
                     y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
                   }}
                 >
-                  {/* Left Spade Icon */}
+                  {/* Left Spade Icon - Rotating counterclockwise */}
                   <motion.div
                     className="absolute left-6 top-1/2 -translate-y-1/2 z-10 text-3xl"
                     animate={{
+                      rotate: [0, -360],
                       scale: [1, 1.2, 1],
                       opacity: [0.8, 1, 0.8],
                     }}
                     transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
+                      rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                      opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                     }}
                   >
                     ♠
@@ -574,18 +576,18 @@ export default function Home() {
 
                   <span className="uppercase tracking-wider drop-shadow-lg z-10 relative px-12">Pedinos tu usuario!</span>
 
-                  {/* Right Spade Icon */}
+                  {/* Right Spade Icon - Rotating clockwise */}
                   <motion.div
                     className="absolute right-6 top-1/2 -translate-y-1/2 z-10 text-3xl"
                     animate={{
+                      rotate: [0, 360],
                       scale: [1, 1.2, 1],
                       opacity: [0.8, 1, 0.8],
                     }}
                     transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1,
+                      rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                      opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 },
                     }}
                   >
                     ♠
