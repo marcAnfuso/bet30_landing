@@ -58,6 +58,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white overflow-hidden relative">
+      {/* Grupo91 logo - top left corner */}
+      <div className="fixed top-4 left-4 z-50">
+        <img
+          src="/ficha-grupo91.png"
+          alt="Grupo 91"
+          className="w-12 h-12 object-contain"
+        />
+      </div>
+
       {/* Background image covering full screen */}
       <div
         className="fixed inset-0 -z-20"
@@ -401,24 +410,24 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleWhatsAppClick('secondary_button')}
-                className="bg-green-600/20 active:bg-green-600/30 border-2 border-green-500/50 text-white font-semibold text-sm px-4 py-2.5 rounded-lg flex items-center justify-center gap-2"
+                className="bg-green-700 active:bg-green-800 border-2 border-green-600 text-white font-semibold text-sm px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 w-4/5 mx-auto"
                 whileTap={{ scale: 0.95 }}
               >
-                <WhatsAppIcon className="w-4 h-4 text-green-400" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Escribinos, en línea 24Hs</span>
               </motion.a>
 
               {/* Trust indicators */}
-              <div className="flex flex-col gap-2 mt-2">
-                <div className="flex items-center justify-center gap-2 text-gray-300">
-                  <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex flex-col gap-2 mt-3 bg-black/30 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-sm font-medium">+10.000 usuarios activos</span>
+                  <span className="text-sm font-semibold text-white">+10.000 usuarios activos</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-gray-300">
-                  <Clock className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm font-medium">Retiros al instante</span>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-lg font-semibold text-white">+18</span>
+                  <span className="text-sm font-semibold text-white">Juego Responsable</span>
                 </div>
               </div>
             </div>
@@ -595,25 +604,25 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleWhatsAppClick('secondary_button')}
-                  className="bg-green-600/20 hover:bg-green-600/30 border-2 border-green-500/50 text-white font-semibold text-lg px-8 py-4 rounded-lg flex items-center justify-center gap-3"
+                  className="bg-green-700 hover:bg-green-800 border-2 border-green-600 text-white font-semibold text-lg px-8 py-4 rounded-lg flex items-center justify-center gap-3 w-5/6 mx-auto"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <WhatsAppIcon className="w-6 h-6 text-green-400" />
+                  <WhatsAppIcon className="w-6 h-6 text-white" />
                   <span>Escribinos, en línea 24Hs</span>
                 </motion.a>
 
                 {/* Trust indicators */}
-                <div className="flex flex-col gap-3 mt-2">
-                  <div className="flex items-center justify-start gap-2 text-gray-300">
-                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex flex-col gap-3 mt-3 bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="flex items-center justify-start gap-2">
+                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-base font-medium">+10.000 usuarios activos</span>
+                    <span className="text-base font-semibold text-white">+10.000 usuarios activos</span>
                   </div>
-                  <div className="flex items-center justify-start gap-2 text-gray-300">
-                    <Clock className="w-5 h-5 text-blue-400" />
-                    <span className="text-base font-medium">Retiros al instante</span>
+                  <div className="flex items-center justify-start gap-2">
+                    <span className="text-xl font-semibold text-white">+18</span>
+                    <span className="text-base font-semibold text-white">Juego Responsable</span>
                   </div>
                 </div>
               </div>
@@ -623,22 +632,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-red-900/30 py-6">
+      <footer className="relative z-10 border-t border-red-900/30 py-6 bg-black/40">
         <div className="flex flex-col items-center gap-4">
-          {/* Trust Badges */}
-          <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span>+18 Juego Responsable</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-              <span>Seguro</span>
-            </div>
-          </div>
-
           {/* Copyright */}
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-300 text-sm">
             © 2025 Bet30.blog - Todos los derechos reservados
           </p>
         </div>
