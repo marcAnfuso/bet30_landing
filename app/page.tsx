@@ -196,20 +196,11 @@ export default function Home() {
               variants={fadeIn}
               className="text-center relative w-full px-4"
             >
-              <motion.img
+              <img
                 src="/bet30.svg"
                 alt="Bet30 Casino"
                 className="w-full h-auto max-w-xs mx-auto relative z-10"
                 style={{maxHeight: '70px', objectFit: 'contain'}}
-                animate={{
-                  filter: [
-                    'drop-shadow(0 0 20px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 40px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 60px rgba(251, 113, 133, 0.4))',
-                    'drop-shadow(0 0 30px rgba(251, 113, 133, 1)) drop-shadow(0 0 50px rgba(251, 113, 133, 0.8)) drop-shadow(0 0 70px rgba(251, 113, 133, 0.5))',
-                    'drop-shadow(0 0 20px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 40px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 60px rgba(251, 113, 133, 0.4))',
-                  ],
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
 
@@ -223,19 +214,7 @@ export default function Home() {
               {/* Top row - 2 cards */}
               <div className="flex gap-3">
                 {/* Card 1 - Retiros */}
-                <motion.div
-                  className="relative"
-                  animate={{
-                    x: [0, -2, 2, -2, 2, 0],
-                    y: [0, 2, -2, 2, -2, 0]
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    repeat: Infinity,
-                    repeatDelay: 5.5,
-                    ease: "easeInOut"
-                  }}
-                >
+                <div className="relative">
                   <div className="relative rounded-xl p-1">
                     <img src="/retiros-blueglow.png" alt="Retiros 24hs" style={{width: '130px', height: 'auto'}} className="object-contain" />
                   </div>
@@ -267,23 +246,10 @@ export default function Home() {
                       </linearGradient>
                     </defs>
                   </svg>
-                </motion.div>
+                </div>
 
                 {/* Card 2 - Pagos */}
-                <motion.div
-                  className="relative"
-                  animate={{
-                    x: [0, -2, 2, -2, 2, 0],
-                    y: [0, 2, -2, 2, -2, 0]
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    repeat: Infinity,
-                    repeatDelay: 5.5,
-                    delay: 2,
-                    ease: "easeInOut"
-                  }}
-                >
+                <div className="relative">
                   <div className="relative rounded-xl p-1">
                     <img src="/pagos-blueglow.png" alt="Pagos Instantáneos" style={{width: '130px', height: 'auto'}} className="object-contain" />
                   </div>
@@ -316,25 +282,12 @@ export default function Home() {
                       </linearGradient>
                     </defs>
                   </svg>
-                </motion.div>
+                </div>
               </div>
 
               {/* Bottom row - 1 card centered */}
               {/* Card 3 - Soporte */}
-              <motion.div
-                className="relative"
-                animate={{
-                  x: [0, -2, 2, -2, 2, 0],
-                  y: [0, 2, -2, 2, -2, 0]
-                }}
-                transition={{
-                  duration: 0.5,
-                  repeat: Infinity,
-                  repeatDelay: 5.5,
-                  delay: 4,
-                  ease: "easeInOut"
-                }}
-              >
+              <div className="relative">
                 <div className="relative rounded-xl p-1">
                   <img src="/soporte-blueglow.png" alt="Soporte 24/7" style={{width: '130px', height: 'auto'}} className="object-contain" />
                 </div>
@@ -357,12 +310,12 @@ export default function Home() {
                     </linearGradient>
                   </defs>
                 </svg>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
 
           {/* Spacer to maintain layout and center the background Joker */}
-          <div className="w-full max-w-[550px] flex-shrink-0 my-48"></div>
+          <div className="w-full max-w-[550px] flex-shrink-0 my-36"></div>
 
           {/* Bottom Section: Buttons - SMALLER */}
           <div className="w-full max-w-sm px-4">
@@ -482,20 +435,11 @@ export default function Home() {
             variants={fadeIn}
             className="text-center relative w-full pt-8 pb-4 px-8"
           >
-            <motion.img
+            <img
               src="/bet30.svg"
               alt="Bet30 Casino"
               className="w-full h-auto mx-auto relative z-10"
               style={{maxHeight: '80px', objectFit: 'contain'}}
-              animate={{
-                filter: [
-                  'drop-shadow(0 0 25px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 45px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 65px rgba(251, 113, 133, 0.4))',
-                  'drop-shadow(0 0 35px rgba(251, 113, 133, 1)) drop-shadow(0 0 55px rgba(251, 113, 133, 0.8)) drop-shadow(0 0 75px rgba(251, 113, 133, 0.5))',
-                  'drop-shadow(0 0 25px rgba(251, 113, 133, 0.9)) drop-shadow(0 0 45px rgba(251, 113, 133, 0.6)) drop-shadow(0 0 65px rgba(251, 113, 133, 0.4))',
-                ],
-                scale: [1, 1.05, 1],
-              }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
           </motion.div>
 
