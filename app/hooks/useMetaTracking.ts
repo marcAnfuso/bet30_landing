@@ -10,40 +10,30 @@ interface EventData {
   [key: string]: string | number | boolean | undefined;
 }
 
+// Generar event_id único para deduplicación
+function generateEventId(): string {
+  return `${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+}
+
 export function useMetaTracking() {
-  const trackEvent = useCallback(async (
+  const trackEvent = useCallback((
     eventName: string,
     customData: EventData = {}
   ) => {
     // Enviar evento via Pixel (client-side)
     if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', eventName, customData);
-      console.log(`Meta Pixel: Evento "${eventName}" enviado`, customData);
-    }
+      // Generar event_id único para evitar duplicados
+      const eventId = generateEventId();
 
-    // Enviar evento via Conversions API (server-side) para mayor precisión
-    try {
-      await fetch('/api/meta-conversion', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          eventName,
-          eventData: {
-            source_url: window.location.href,
-            custom_data: customData,
-          },
-          userData: {
-            // Meta puede usar estos datos para mejorar el matching
-            // Se hashean automáticamente por Meta
-          },
-        }),
-      });
-      console.log(`Meta Conversions API: Evento "${eventName}" enviado al servidor`);
-    } catch (error) {
-      console.warn('Error al enviar evento a Conversions API:', error);
-      // No fallar si el server-side tracking falla
+      // Enviar con event_id para deduplicación
+      window.fbq('track', eventName, customData, { eventID: eventId });
+
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`Meta Pixel: Evento "${eventName}" enviado`, {
+          ...customData,
+          eventID: eventId
+        });
+      }
     }
   }, []);
 
