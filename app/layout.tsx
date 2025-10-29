@@ -16,11 +16,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bet30 Casino - Tu casino online de confianza",
   description: "Bet30 Casino - Retiros 24hs, pagos instantáneos, soporte 24/7. El mejor casino online en tus manos.",
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
-  },
   openGraph: {
     title: "Bet30 Casino - Tu casino online de confianza",
     description: "Retiros 24hs, pagos instantáneos, soporte 24/7. El mejor casino online en tus manos.",

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from 'react';
 import Script from 'next/script';
 
 declare global {
@@ -13,21 +12,9 @@ declare global {
 export default function MetaPixel() {
   const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
-  useEffect(() => {
-    // Solo inicializar si existe el Pixel ID
-    if (!PIXEL_ID) {
-      console.warn('Meta Pixel ID no configurado. Agregá NEXT_PUBLIC_META_PIXEL_ID a tu archivo .env.local');
-      return;
-    }
-
-    // Disparar evento PageView automático cuando carga la página
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'PageView');
-    }
-  }, [PIXEL_ID]);
-
   // Si no hay Pixel ID configurado, no renderizar nada
   if (!PIXEL_ID) {
+    console.warn('Meta Pixel ID no configurado. Agregá NEXT_PUBLIC_META_PIXEL_ID a tu archivo .env.local');
     return null;
   }
 
