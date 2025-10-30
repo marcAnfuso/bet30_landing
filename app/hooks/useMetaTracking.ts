@@ -28,12 +28,13 @@ export function useMetaTracking() {
       // Enviar con event_id para deduplicación
       window.fbq('track', eventName, customData, { eventID: eventId });
 
-      if (process.env.NODE_ENV === 'development') {
-        console.log(`Meta Pixel: Evento "${eventName}" enviado`, {
-          ...customData,
-          eventID: eventId
-        });
-      }
+      // Log siempre (incluye URL de origen para debugging)
+      console.log(`[Meta Pixel] Evento "${eventName}" enviado desde:`, {
+        url: window.location.href,
+        hostname: window.location.hostname,
+        eventID: eventId,
+        data: customData
+      });
     }
   }, []);
 
