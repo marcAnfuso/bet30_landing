@@ -58,15 +58,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white overflow-hidden relative">
-      {/* Grupo91 logo - top left corner */}
-      <div className="fixed top-4 left-4 z-50">
-        <img
-          src="/ficha-grupo91.png"
-          alt="Grupo 91"
-          className="w-12 h-12 object-contain"
-        />
-      </div>
-
       {/* Background image covering full screen */}
       <div
         className="fixed inset-0 -z-20"
@@ -194,22 +185,22 @@ export default function Home() {
       <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
 
         {/* MOBILE: Logo top, horizontal layout, buttons bottom */}
-        <div className="flex flex-col items-center justify-start pt-6 pb-6 px-4 lg:hidden relative gap-6">
+        <div className="flex flex-col items-center justify-start pt-0 pb-6 px-4 lg:hidden relative gap-6">
 
           {/* Top section: Logo + Feature Boxes */}
-          <div className="flex flex-col items-center gap-6 w-full">
+          <div className="flex flex-col items-center gap-3 w-full">
             {/* Logo CASINO ZEUS */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeIn}
-              className="text-center relative w-full px-4"
+              className="text-center relative w-full px-4 -mt-12"
             >
               <img
-                src="/bet30.svg"
-                alt="Bet30 Casino"
-                className="w-full h-auto max-w-xs mx-auto relative z-10"
-                style={{maxHeight: '70px', objectFit: 'contain'}}
+                src="/logo-oropuro.png"
+                alt="Oropuro Casino"
+                className="w-full h-auto max-w-lg mx-auto relative z-10"
+                style={{maxHeight: '250px', objectFit: 'contain'}}
               />
             </motion.div>
 
@@ -218,7 +209,7 @@ export default function Home() {
               initial="hidden"
               animate="visible"
               variants={fadeIn}
-              className="flex flex-col gap-2 items-center"
+              className="flex flex-col gap-2 items-center -mt-16 lg:mt-0"
             >
               {/* Top row - 2 cards */}
               <div className="flex gap-3">
@@ -443,13 +434,13 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={fadeIn}
-            className="text-center relative w-full pt-8 pb-4 px-8"
+            className="text-center relative w-full pt-2 pb-2 px-8"
           >
             <img
-              src="/bet30.svg"
-              alt="Bet30 Casino"
+              src="/logo-oropuro.png"
+              alt="Oropuro Casino"
               className="w-full h-auto mx-auto relative z-10"
-              style={{maxHeight: '80px', objectFit: 'contain'}}
+              style={{maxHeight: '364px', objectFit: 'contain'}}
             />
           </motion.div>
 
